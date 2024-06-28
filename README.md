@@ -53,3 +53,11 @@ local=/facebook.com/
 local=/facebook.net/
 local=/fb.com/
 ```
+
+Create `/etc/resolver/` files for each domain.
+
+```bash
+printf "nameserver 127.0.0.1" | sudo tee /etc/resolver/facebook.com
+printf "nameserver 127.0.0.1" | sudo tee /etc/resolver/facebook.net
+printf "nameserver 127.0.0.1" | sudo tee /etc/resolver/fb.com
+```
