@@ -61,3 +61,5 @@ printf "nameserver 127.0.0.1" | sudo tee /etc/resolver/facebook.com
 printf "nameserver 127.0.0.1" | sudo tee /etc/resolver/facebook.net
 printf "nameserver 127.0.0.1" | sudo tee /etc/resolver/fb.com
 ```
+
+At this point dnsmasq is configured to listen on `127.0.0.1`. Any traffic for the domains in `/etc/resolver` will be directed to dnsmasq. This will result in a `NXDOMAIN`
