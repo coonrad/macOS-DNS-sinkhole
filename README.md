@@ -62,4 +62,20 @@ printf "nameserver 127.0.0.1" | sudo tee /etc/resolver/facebook.net
 printf "nameserver 127.0.0.1" | sudo tee /etc/resolver/fb.com
 ```
 
-At this point dnsmasq is configured to listen on `127.0.0.1`. Any traffic for the domains in `/etc/resolver` will be directed to dnsmasq. This will result in a `NXDOMAIN`
+Load dnsmasq.
+
+```bash
+sudo port load dnsmasq
+```
+
+At this point dnsmasq is configured to listen on `127.0.0.1`. Any traffic for the domains in `/etc/resolver` will be directed to dnsmasq. This will result in `NXDOMAIN` and traffic to the specified domain will not resolve. You can verify this by doing `host` or `dig` commands against `127.0.0.1` or viewing the resolver log. (If you don't want to log queries to dnsmasq. Comment out `log-facilty` in the configuration file.)
+
+```bash
+Jun 27 23:59:33 dnsmasq[89]: query[A] facebook.com from 127.0.0.1
+Jun 27 23:59:33 dnsmasq[89]: config facebook.com is NXDOMAIN
+```
+
+With some automation you should be able to block hundreds or thousands of domains.
+
+
+
