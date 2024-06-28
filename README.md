@@ -75,7 +75,7 @@ Jun 27 23:59:33 dnsmasq[89]: query[A] facebook.com from 127.0.0.1
 Jun 27 23:59:33 dnsmasq[89]: config facebook.com is NXDOMAIN
 ```
 
-With some automation you should be able to block hundreds or thousands of domains. For instance this bash function will grep the domains from the domains file and populate and entry for each one to `/etc/resolver`.
+With some automation you should be able to block hundreds or thousands of domains. For instance this bash function will grep the domains from the domains file and populate an entry for each one to `/etc/resolver`.
 
 ```bash
 function dnsmasq_setup() {
